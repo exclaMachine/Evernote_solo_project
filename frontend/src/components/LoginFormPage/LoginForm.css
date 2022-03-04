@@ -1,0 +1,25 @@
+.loginform {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    border: 200px black solid;
+}
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    background-color: aquamarine;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+label {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
