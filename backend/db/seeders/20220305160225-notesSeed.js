@@ -6,9 +6,9 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     const seedNotes = (num) => {
       let i = 0;
-      let reviewArr = [];
+      let notesArr = [];
       while (i < num) {
-        const review = {
+        const note = {
           userId: Math.ceil(Math.random() * 3), // 3 users (ceil so we don't get 0)
           notebookId: Math.ceil(Math.random() * 20), //20 notebooks
           title: faker.commerce.color(),
@@ -16,10 +16,10 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         }
-        reviewArr.push(review);
+        reviewArr.push(note);
         i++;
       }
-      return reviewArr;
+      return notesArr;
     }
 
       return queryInterface.bulkInsert('Notes', seedNotes(25) , {});
