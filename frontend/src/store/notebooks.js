@@ -47,4 +47,4 @@ const notebookReducer = (state = initialState, action) => {
     }
 }
 
-export default articleReducer;
+export default notebookReducer;
