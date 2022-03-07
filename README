@@ -1,0 +1,9 @@
+To run this program cd into the backend folder and run npm install.
+Cd into the frontend folder and also run npm install
+
+Create a .env file based on the .env.example template given.
+
+Create a database which can be seeded using dotenv
+
+Run npm start in the backend folder
+Run npm start in the frontend folder
