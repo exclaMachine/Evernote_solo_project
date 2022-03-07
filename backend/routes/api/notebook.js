@@ -14,4 +14,9 @@ router.get('', asyncHandler (async (req, res) => {
 
 }))
 
+router.post('', asyncHandler (async(req, res) => {
+    const  notebook = await Notebook.create(req.body);
+    res.json(notebook);
+}))
+
 module.exports = router;

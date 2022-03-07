@@ -24,6 +24,20 @@ export const fetchNotebooks = () => async dispatch => {
     return notebooks;
 }
 
+//thunk creator for POST request
+export const postNotebook = (data) => async dispatch => {
+    const res = await fetch('/api/notebooks', {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(data)
+    })
+    const newNotebook = await res.json()
+
+    dispatch(addNotebook(newNotebook))
+    return newNotebook;
+}
+
+
 const initialState = {entries: {}}
 
 const notebookReducer = (state = initialState, action) => {
