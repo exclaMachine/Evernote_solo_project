@@ -19,7 +19,7 @@ export const addNotebook = (newNotebook) => {
 export const fetchNotebooks = () => async dispatch => {
     const res = await fetch('/api/notebooks')
     const notebooks = await res.json()
-
+    console.log(notebooks);
     dispatch(loadNotebooks(notebooks))
     return notebooks;
 }
@@ -33,8 +33,9 @@ const notebookReducer = (state = initialState, action) => {
         case LOAD_NOTEBOOKS:
             newState = {...state};
             newEntries = {};
-            action.notebooks.forEach(notebook => newEntries[notebook.id] = notebook)
+            // action.notebooks.forEach(notebook => newEntries[notebook.id] = notebook)
             newState.entries = newEntries;
+            console.log('nnnnnn', newState)
             return newState;
         case ADD_NOTEBOOK:
             newState = {...state};

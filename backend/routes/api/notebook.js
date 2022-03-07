@@ -7,13 +7,18 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const router = require('./session');
 
-router.get('/', (req, res) => {
+router.get('/', asyncHandler (async (req, res) => {
+    const {userId} = req.session.auth
     const { title } = req.body;
-    //think i need to add the user here or on the frontend notebook List page
-    const notebooks = Notebook.findAll();
+    console.log(title);
+    const notebooks = await Notebook.findAll(
+        // {
+        //     where: {userId}
+        // }
+    );
+    console.log(notebooks.title)
     res.json(notebooks);
-    console.log(notebooks)
 
-})
+}))
 
 module.exports = router;
