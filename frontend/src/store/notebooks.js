@@ -1,7 +1,7 @@
 const LOAD_NOTEBOOKS = 'notebook/loadNotebooks';
 const ADD_NOTEBOOK = 'notebook/addNotebook'
 
-export const loadNotebook = (notebooks) => {
+export const loadNotebooks = (notebooks) => {
     return {
         type: LOAD_NOTEBOOKS,
         notebooks
@@ -13,6 +13,15 @@ export const addNotebook = (newNotebook) => {
         type: ADD_NOTEBOOK,
         newNotebook
     }
+}
+
+//thunk creator for GET request
+export const fetchNotebooks = () => async dispatch => {
+    const res = await fetch('/api/notebooks')
+    const notebooks = await res.json()
+
+    dispatch(loadNotebooks(notebooks))
+    return notebooks;
 }
 
 const initialState = {entries: {}}
