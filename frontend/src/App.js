@@ -7,7 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
 import NotebookList from "./components/NotebookList";
-
+import AddNotebook from './components/AddNotebook'
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ function App() {
       )}
       <Switch>
         <Route path="/api/notebooks">
+          <AddNotebook/>
           <NotebookList/>
         </Route>
       </Switch>
