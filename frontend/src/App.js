@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 
 import NotebookList from "./components/NotebookList";
 import AddNotebook from './components/AddNotebook'
+import Splashpage from "./components/NoteList";
+import NoteList from "./components/NoteList";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,9 @@ function App() {
         </Switch>
       )}
       <Switch>
+        <Route path='/api/notes'>
+          <NoteList />
+        </Route>
         <Route path="/api/notebooks">
           <AddNotebook/>
           <NotebookList/>

@@ -30,6 +30,12 @@ const Navigation = ({isLoaded}) => {
             <NavLink to='/'>
                 Home
             </NavLink>
+            <NavLink to='/api/notes'>
+                Notes
+            </NavLink>
+            <NavLink to='/api/notebooks'>
+                Notebooks
+            </NavLink>
             {isLoaded && sessionLinks}
             </li>
         </ul>
