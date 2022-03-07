@@ -14,13 +14,13 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         }
-        reviewArr.push(notebook);
+        notebooksArr.push(notebook);
         i++;
       }
       return notebooksArr;
     }
 
-      return queryInterface.bulkInsert('Notebooks', seedNotebooks(15), {});
+      return queryInterface.bulkInsert('Notebooks', seedNotebooks(22), {});
   },
 
   down: (queryInterface, Sequelize) => {

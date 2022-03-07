@@ -16,7 +16,7 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         }
-        reviewArr.push(note);
+        notesArr.push(note);
         i++;
       }
       return notesArr;
