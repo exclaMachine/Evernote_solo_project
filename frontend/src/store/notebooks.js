@@ -33,10 +33,12 @@ const notebookReducer = (state = initialState, action) => {
         case LOAD_NOTEBOOKS:
             newState = {...state};
             newEntries = {};
-            // action.notebooks.forEach(notebook => newEntries[notebook.id] = notebook)
+            console.log('action', action)
+            action.notebooks.forEach(notebook => newEntries[notebook.id] = notebook)
             newState.entries = newEntries;
-            console.log('nnnnnn', newState)
+            // console.log('nnnnnn', newState)
             return newState;
+            // return {...state, entries: [...action.notebooks]}
         case ADD_NOTEBOOK:
             newState = {...state};
             newEntries = {...state.entries}

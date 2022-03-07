@@ -8,8 +8,8 @@ import { fetchNotebooks } from "../../store/notebooks";
 const NotebookList = () => {
     const dispatch = useDispatch();
 
-    // const notebooksObject = useSelector((state) => state.notebookState.entries);
-    const notebooksObject = useSelector((state) => state.notebookState);
+    const notebooksObject = useSelector((state) => state.notebookState.entries);
+    // const notebooksObject = useSelector((state) => state.notebookState);
 
     console.log('noteObj', notebooksObject)
     const notebooks = Object.values(notebooksObject)
