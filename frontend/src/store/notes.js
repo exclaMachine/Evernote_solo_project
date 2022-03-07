@@ -16,7 +16,7 @@ export const addNote = (newNote) => {
 }
 
 //thunk creator for GET request
-export const fetchNotebooks = () => async dispatch => {
+export const fetchNotes = () => async dispatch => {
     const res = await fetch('/api/notes')
     const notes = await res.json()
     console.log(notes);
@@ -25,7 +25,7 @@ export const fetchNotebooks = () => async dispatch => {
 }
 
 //thunk creator for POST request
-export const postNotebook = (data) => async dispatch => {
+export const postNote = (data) => async dispatch => {
     const res = await fetch('/api/notes', {
         method: "POST",
         headers: {"Content-Type":"application/json"},
