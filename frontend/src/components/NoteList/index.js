@@ -12,7 +12,7 @@ const NoteList = () => {
     // console.log('noteObj', notesObject)
     const notes = Object.values(notesObject)
 
-    let usersNotes = notes.filter(note => note.userId === sessionUser.id)
+    let usersNotes = notes.filter(note => note?.userId === sessionUser?.id)
 
 
     console.log('notes', notes)
