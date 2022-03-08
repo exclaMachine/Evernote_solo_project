@@ -46,6 +46,17 @@ export const postNote = (data) => async dispatch => {
     return newNote;
 }
 
+//thunk creator for DELETE request
+export const removeNote = (id) => async dispatch => {
+    const res = await fetch(`/api/notes/${id}`, {
+        method: 'DELETE'
+    })
+    const data = await res.json()
+
+    dispatch(deleteNote(data))
+    return data;
+}
+
 
 const initialState = {entries: {}}
 
