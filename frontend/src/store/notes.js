@@ -51,7 +51,7 @@ export const removeNote = (id) => async dispatch => {
     const res = await fetch(`/api/notes/${id}`, {
         method: 'DELETE'
     })
-    const data = await res.json()
+    let data = await res.json()
 
     dispatch(deleteNote(data))
     return data;
@@ -78,7 +78,7 @@ const noteReducer = (state = initialState, action) => {
             newState.entries = newEntries
             return newState;
         case DELETE_NOTE:
-            const newState = {...state};
+            newState = {...state};
             delete newState[action.id]
             return newState;
         default:
