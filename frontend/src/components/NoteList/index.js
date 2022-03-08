@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch, NavLink} from 'react-router-dom'
 import AddNote from "../AddNoteForm";
 
-import { fetchNotes, addNote, deleteNote } from "../../store/notes";
+import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
 const NoteList = () => {
     const dispatch = useDispatch();
@@ -14,7 +14,6 @@ const NoteList = () => {
     const notes = Object.values(notesObject)
 
     let usersNotes = notes.filter(note => note?.userId === sessionUser?.id)
-
 
     console.log('notes', notes)
 
@@ -59,6 +58,7 @@ const NoteList = () => {
                 {usersNotes.map(({ id, title, updatedAt}) => (
         <div>
                     <li key={id}>
+                    <button onClick={() => dispatch(removeNote(id)) }>Delete</button>
                         {title}
                     </li>
                     <li>
