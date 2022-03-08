@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch, NavLink} from 'react-router-dom'
+import AddNote from "../AddNoteForm";
 
 import { fetchNotes, addNote, deleteNote } from "../../store/notes";
 
@@ -52,6 +53,7 @@ const NoteList = () => {
         // (userNoteList)
         <div>
             {/* <button>Add Note</button> */}
+            <AddNote/>
             <h1>Note List</h1>
             <ul>
                 {usersNotes.map(({ id, title, updatedAt}) => (
