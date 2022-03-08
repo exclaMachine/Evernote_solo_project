@@ -6,28 +6,52 @@ import { fetchNotes, addNote } from "../../store/notes";
 
 const NoteList = () => {
     const dispatch = useDispatch();
-
+    const sessionUser = useSelector(state => state.session.user);
     const notesObject = useSelector((state) => state.noteState.entries);
 
-    console.log('noteObj', notesObject)
+    // console.log('noteObj', notesObject)
     const notes = Object.values(notesObject)
+
+    let usersNotes = notes.filter(note => note.userId === sessionUser.id)
+
+
+    console.log('notes', notes)
 
     useEffect(() => {
         dispatch(fetchNotes())
     }, [dispatch])
 
-    return (
-        <div>
+    let userNoteList;
+    if (sessionUser) {
+        userNoteList = (
+            <div>
             {/* <button>Add Note</button> */}
             <h1>Note List</h1>
             <ul>
-                {notes.map(({ id, title}) => (
+                {usersNotes.map(({ id, title}) => (
                     <li key={id}>
                         {title}
                     </li>
                 ))}
             </ul>
         </div>
+        )
+    }
+
+
+    return (
+        (userNoteList)
+        // <div>
+        //     {/* <button>Add Note</button> */}
+        //     <h1>Note List</h1>
+        //     <ul>
+        //         {notes.map(({ id, title}) => (
+        //             <li key={id}>
+        //                 {title}
+        //             </li>
+        //         ))}
+        //     </ul>
+        // </div>
     )
 }
 
