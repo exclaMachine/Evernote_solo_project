@@ -2,21 +2,20 @@ const router = require('express').Router();
 const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { Notebook, Note, User } = require('../../db/models');
+const { Note, User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 router.get('', asyncHandler (async (req, res) => {
 
-    const notebooks = await Notebook.findAll();
-    console.log('nbs', notebooks)
-    res.json(notebooks);
+    const notes = await Note.findAll();
+    res.json(notes);
 
 }))
 
 router.post('', asyncHandler (async(req, res) => {
-    const  notebook = await Notebook.create(req.body);
-    res.json(notebook);
+    const  note = await Note.create(req.body);
+    res.json(note);
 }))
 
 module.exports = router;

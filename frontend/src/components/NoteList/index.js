@@ -1,0 +1,34 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch} from 'react-router-dom'
+
+import { fetchNotes, addNote } from "../../store/notes";
+
+const NoteList = () => {
+    const dispatch = useDispatch();
+
+    const notesObject = useSelector((state) => state.noteState.entries);
+
+    console.log('noteObj', notesObject)
+    const notes = Object.values(notesObject)
+
+    useEffect(() => {
+        dispatch(fetchNotes())
+    }, [dispatch])
+
+    return (
+        <div>
+            {/* <button>Add Note</button> */}
+            <h1>Note List</h1>
+            <ul>
+                {notes.map(({ id, title}) => (
+                    <li key={id}>
+                        {title}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
+}
+
+export default NoteList;

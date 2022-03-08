@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch} from 'react-router-dom'
 // import notebook from "../../../../backend/db/models/notebook";
 
-import { fetchNotebooks } from "../../store/notebooks";
+import { fetchNotebooks, addNotebook } from "../../store/notebooks";
 
 const NotebookList = () => {
     const dispatch = useDispatch();
@@ -20,6 +20,7 @@ const NotebookList = () => {
 
     return (
         <div>
+            {/* <button>Add Notebook</button> */}
             <h1>Notebook List</h1>
             <ul>
                 {notebooks.map(({ id, title}) => (
