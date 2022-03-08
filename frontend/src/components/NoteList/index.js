@@ -14,7 +14,6 @@ const NoteList = () => {
 
     let usersNotes = notes.filter(note => note?.userId === sessionUser?.id)
 
-
     console.log('notes', notes)
 
     useEffect(() => {
