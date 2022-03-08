@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch} from 'react-router-dom'
+import { Route, Switch, NavLink} from 'react-router-dom'
 
-import { fetchNotes, addNote } from "../../store/notes";
+import { fetchNotes, addNote, deleteNote } from "../../store/notes";
 
 const NoteList = () => {
     const dispatch = useDispatch();
@@ -19,6 +19,9 @@ const NoteList = () => {
 
     useEffect(() => {
         dispatch(fetchNotes())
+        // return () => {
+        //     dispatch(fetchNotes())
+        // }
     }, [dispatch])
 
     let userNoteList;
