@@ -33,9 +33,9 @@ export const removeNote = (id) => async dispatch => {
     const res = await csrfFetch(`/api/notes/${id}`, {
         method: 'DELETE',
     })
-    let data = await res.json()
-
-    dispatch(deleteNote(data))
+    let idToDelete = await res.json()
+    // console.log('data', data)
+    dispatch(deleteNote(idToDelete))
     // return data;
 }
 
@@ -83,8 +83,11 @@ const noteReducer = (state = initialState, action) => {
             newState.entries = newEntries
             return newState;
         case DELETE_NOTE:
-            newState = {...state};
-            delete newState[action.id]
+            newState = JSON.parse(JSON.stringify(state));
+            // newState = {...state};
+            delete newState.entries[action.id]
+            console.log('what is it', newState);
+            console.log('action', action)
             return newState;
         default:
             return state;
