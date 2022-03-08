@@ -22,36 +22,47 @@ const NoteList = () => {
     }, [dispatch])
 
     let userNoteList;
-    if (sessionUser) {
-        userNoteList = (
-            <div>
-            {/* <button>Add Note</button> */}
-            <h1>Note List</h1>
-            <ul>
-                {usersNotes.map(({ id, title}) => (
-                    <li key={id}>
-                        {title}
-                    </li>
-                ))}
-            </ul>
-        </div>
-        )
-    }
+    // if (sessionUser) {
+    //     userNoteList = (
+    //         <div>
+    //         {/* <button>Add Note</button> */}
+    //         <h1>Note List</h1>
+    //         <ul>
+    //             {usersNotes.map(({ id, title, updatedAt}) => (
+    //                 <div>
+    //                 <li key={id}>
+    //                     {title}
+    //                 </li>
+    //                 <li>
+    //                     {updatedAt}
+    //                 </li>
+    //                 </div>
+    //             ))}
+    //         </ul>
+    //     </div>
+    //     )
+    // }
 
 
     return (
-        (userNoteList)
-        // <div>
-        //     {/* <button>Add Note</button> */}
-        //     <h1>Note List</h1>
-        //     <ul>
-        //         {notes.map(({ id, title}) => (
-        //             <li key={id}>
-        //                 {title}
-        //             </li>
-        //         ))}
-        //     </ul>
-        // </div>
+        //I think this is giving me an error if I refresh...
+        // (userNoteList)
+        <div>
+            {/* <button>Add Note</button> */}
+            <h1>Note List</h1>
+            <ul>
+                {usersNotes.map(({ id, title, updatedAt}) => (
+        <div>
+                    <li key={id}>
+                        {title}
+                    </li>
+                    <li>
+                        {updatedAt}
+                    </li>
+                    </div>
+                ))}
+            </ul>
+        </div>
     )
 }
 
