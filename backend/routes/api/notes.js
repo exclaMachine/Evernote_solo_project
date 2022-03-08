@@ -18,9 +18,15 @@ router.post('', asyncHandler (async(req, res) => {
     res.json(note);
 }))
 
-router.delete(':/id', asyncHandler(async(req, res) => {
-    const id = await Note.destroy(req.params.id);
-    return res.json({id})
+router.delete('/:id', asyncHandler(async(req, res) => {
+    const deletedId = parseInt(req.params.id, 10)
+    console.log('paramssssss', deletedId);
+    const found = await Note.findByPk(deletedId)
+    console.log('found', found)
+
+    await found.destroy()
+
+    return res.json(deletedId)
 }))
 
 module.exports = router;

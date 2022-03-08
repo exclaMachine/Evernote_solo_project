@@ -1,3 +1,6 @@
+import { csrfFetch } from './csrf';
+
+
 const LOAD_NOTES = 'note/loadNotes';
 const ADD_NOTE = 'note/addNote'
 const DELETE_NOTE = 'note/deleteNote'
@@ -24,6 +27,18 @@ export const deleteNote = (id) => {
     }
 }
 
+//thunk creator for DELETE request
+export const removeNote = (id) => async dispatch => {
+    // const res = await fetch(`/api/notes/${id}`, {
+    const res = await csrfFetch(`/api/notes/${id}`, {
+        method: 'DELETE',
+    })
+    let data = await res.json()
+
+    dispatch(deleteNote(data))
+    // return data;
+}
+
 //thunk creator for GET request
 export const fetchNotes = () => async dispatch => {
     const res = await fetch('/api/notes')
@@ -46,16 +61,6 @@ export const postNote = (data) => async dispatch => {
     return newNote;
 }
 
-//thunk creator for DELETE request
-export const removeNote = (id) => async dispatch => {
-    const res = await fetch(`/api/notes/${id}`, {
-        method: 'DELETE'
-    })
-    let data = await res.json()
-
-    dispatch(deleteNote(data))
-    return data;
-}
 
 
 const initialState = {entries: {}}
