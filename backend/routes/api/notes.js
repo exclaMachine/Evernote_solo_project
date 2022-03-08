@@ -19,7 +19,7 @@ router.post('', asyncHandler (async(req, res) => {
 }))
 
 router.delete(':/id', asyncHandler(async(req, res) => {
-    const id = await Note.delete(req.params.id);
+    const id = await Note.destroy(req.params.id);
     return res.json({id})
 }))
 
