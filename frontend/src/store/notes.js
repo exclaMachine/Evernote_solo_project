@@ -1,5 +1,7 @@
 const LOAD_NOTES = 'note/loadNotes';
 const ADD_NOTE = 'note/addNote'
+const DELETE_NOTE = 'note/deleteNote'
+
 
 export const loadNotes = (notes) => {
     return {
@@ -12,6 +14,13 @@ export const addNote = (newNote) => {
     return {
         type: ADD_NOTE,
         newNote
+    }
+}
+
+export const deleteNote = (id) => {
+    return {
+        type: DELETE_NOTE,
+        id
     }
 }
 
@@ -37,6 +46,17 @@ export const postNote = (data) => async dispatch => {
     return newNote;
 }
 
+//thunk creator for DELETE request
+export const removeNote = (id) => async dispatch => {
+    const res = await fetch(`/api/notes/${id}`, {
+        method: 'DELETE'
+    })
+    let data = await res.json()
+
+    dispatch(deleteNote(data))
+    return data;
+}
+
 
 const initialState = {entries: {}}
 
@@ -51,12 +71,15 @@ const noteReducer = (state = initialState, action) => {
             action.notes.forEach(note => newEntries[note.id] = note)
             newState.entries = newEntries;
             return newState;
-            // return {...state, entries: [...action.notes]}
         case ADD_NOTE:
             newState = {...state};
             newEntries = {...state.entries}
             newEntries[action.newNote.id] = action.newNote;
             newState.entries = newEntries
+            return newState;
+        case DELETE_NOTE:
+            newState = {...state};
+            delete newState[action.id]
             return newState;
         default:
             return state;

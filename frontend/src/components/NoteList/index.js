@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch} from 'react-router-dom'
+import { Route, Switch, NavLink} from 'react-router-dom'
 
-import { fetchNotes, addNote } from "../../store/notes";
+import { fetchNotes, addNote, deleteNote } from "../../store/notes";
 
 const NoteList = () => {
     const dispatch = useDispatch();
@@ -12,46 +12,60 @@ const NoteList = () => {
     // console.log('noteObj', notesObject)
     const notes = Object.values(notesObject)
 
-    let usersNotes = notes.filter(note => note.userId === sessionUser.id)
+    let usersNotes = notes.filter(note => note?.userId === sessionUser?.id)
 
 
     console.log('notes', notes)
 
     useEffect(() => {
         dispatch(fetchNotes())
+        // return () => {
+        //     dispatch(fetchNotes())
+        // }
     }, [dispatch])
 
     let userNoteList;
-    if (sessionUser) {
-        userNoteList = (
-            <div>
-            {/* <button>Add Note</button> */}
-            <h1>Note List</h1>
-            <ul>
-                {usersNotes.map(({ id, title}) => (
-                    <li key={id}>
-                        {title}
-                    </li>
-                ))}
-            </ul>
-        </div>
-        )
-    }
+    // if (sessionUser) {
+    //     userNoteList = (
+    //         <div>
+    //         {/* <button>Add Note</button> */}
+    //         <h1>Note List</h1>
+    //         <ul>
+    //             {usersNotes.map(({ id, title, updatedAt}) => (
+    //                 <div>
+    //                 <li key={id}>
+    //                     {title}
+    //                 </li>
+    //                 <li>
+    //                     {updatedAt}
+    //                 </li>
+    //                 </div>
+    //             ))}
+    //         </ul>
+    //     </div>
+    //     )
+    // }
 
 
     return (
-        (userNoteList)
-        // <div>
-        //     {/* <button>Add Note</button> */}
-        //     <h1>Note List</h1>
-        //     <ul>
-        //         {notes.map(({ id, title}) => (
-        //             <li key={id}>
-        //                 {title}
-        //             </li>
-        //         ))}
-        //     </ul>
-        // </div>
+        //I think this is giving me an error if I refresh...
+        // (userNoteList)
+        <div>
+            {/* <button>Add Note</button> */}
+            <h1>Note List</h1>
+            <ul>
+                {usersNotes.map(({ id, title, updatedAt}) => (
+        <div>
+                    <li key={id}>
+                        {title}
+                    </li>
+                    <li>
+                        {updatedAt}
+                    </li>
+                    </div>
+                ))}
+            </ul>
+        </div>
     )
 }
 
