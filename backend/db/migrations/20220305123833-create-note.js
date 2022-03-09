@@ -14,7 +14,7 @@ module.exports = {
         references: { model: 'Users'}
       },
       notebookId: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         references: { model: 'Notebooks'}
       },

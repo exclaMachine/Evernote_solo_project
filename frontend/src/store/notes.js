@@ -49,19 +49,18 @@ export const fetchNotes = () => async dispatch => {
 }
 
 //thunk creator for POST request
-export const postNote = (data) => async dispatch => {
-    const res = await fetch('/api/notes', {
+export const postNoteThunk = (data) => async dispatch => {
+    const res = await csrfFetch('/api/notes', {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)
     })
     const newNote = await res.json()
-
+    console.log(newNote)
     dispatch(addNote(newNote))
     return newNote;
+    // return addDispatch.id;
 }
-
-
 
 const initialState = {entries: {}}
 
