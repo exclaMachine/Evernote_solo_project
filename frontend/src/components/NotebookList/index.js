@@ -3,19 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch} from 'react-router-dom'
 // import notebook from "../../../../backend/db/models/notebook";
 
-import { fetchNotebooks, addNotebook } from "../../store/notebooks";
+import { fetchNotebooksThunk, postNotebookThunk } from "../../store/notebooks";
 
 const NotebookList = () => {
     const dispatch = useDispatch();
 
     const notebooksObject = useSelector((state) => state.notebookState.entries);
     // const notebooksObject = useSelector((state) => state.notebookState);
+    const sessionUser = useSelector(state => state.session.user);
 
     console.log('noteObj', notebooksObject)
     const notebooks = Object.values(notebooksObject)
 
+    let usersNotebooks = notebooks.filter(note => note?.userId === sessionUser?.id)
+
+
+
     useEffect(() => {
-        dispatch(fetchNotebooks())
+        dispatch(fetchNotebooksThunk())
     }, [dispatch])
 
     return (
@@ -23,7 +28,7 @@ const NotebookList = () => {
             {/* <button>Add Notebook</button> */}
             <h1>Notebook List</h1>
             <ul>
-                {notebooks.map(({ id, title}) => (
+                {usersNotebooks.map(({ id, title}) => (
                     <li key={id}>
                         {title}
                     </li>
