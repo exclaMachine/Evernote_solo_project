@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { postNotebookThunk } from "../../store/notebooks";
 
 const AddNotebook = () => {
     const dispatch = useDispatch();
+
+    const sessionUser = useSelector(state => state.session.user);
+
 
     const [title, setTitle] = useState('');
 
@@ -15,6 +18,7 @@ const AddNotebook = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newNotebook = {
+            userId: sessionUser?.id,
             title
         }
 
