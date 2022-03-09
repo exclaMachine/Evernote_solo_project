@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateNoteThunk } from "../../store/notes";
 
-const UpdateNote = (id) => {
+const UpdateNote = ({id}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -27,7 +27,7 @@ const UpdateNote = (id) => {
             content,
         }
 
-        dispatch(updateNoteThunk(updatedNote));
+        dispatch(updateNoteThunk(id, updatedNote));
         reset();
     }
 

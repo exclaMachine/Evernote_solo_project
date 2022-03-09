@@ -79,7 +79,7 @@ export const updateNoteThunk = (id, data) => async dispatch => {
         body: JSON.stringify(data)
     })
     const updatedNote = await res.json()
-    dispatch(updateNote(updatedNote))
+    dispatch(updateNote(id, updatedNote))
     return updatedNote;
 }
 

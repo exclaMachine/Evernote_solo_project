@@ -59,9 +59,9 @@ const NoteList = () => {
                 {usersNotes.map(({ id, title, updatedAt}) => (
         <div>
                     <li key={id}>
-                    <button onClick={() => dispatch(removeNote(id)) }>Delete</button>
                     <UpdateNote id={id}/>
                         {title}
+                    <button onClick={() => dispatch(removeNote(id)) }>Delete</button>
                     </li>
                     <li>
                         {updatedAt}
