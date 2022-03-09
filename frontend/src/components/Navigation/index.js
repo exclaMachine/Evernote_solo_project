@@ -14,9 +14,11 @@ const Navigation = ({isLoaded}) => {
                 <NavLink to='/'>
                 Home
             </NavLink>
+            <br></br>
             <NavLink to='/api/notes'>
                 Notes
             </NavLink>
+            <br></br>
             <NavLink to='/api/notebooks'>
                 Notebooks
             </NavLink>
