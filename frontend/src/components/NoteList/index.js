@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch, NavLink} from 'react-router-dom'
 import AddNote from "../AddNoteForm";
+import UpdateNote from "../EditNoteForm";
 
 import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
@@ -58,8 +59,9 @@ const NoteList = () => {
                 {usersNotes.map(({ id, title, updatedAt}) => (
         <div>
                     <li key={id}>
-                    <button onClick={() => dispatch(removeNote(id)) }>Delete</button>
+                    <UpdateNote id={id}/>
                         {title}
+                    <button onClick={() => dispatch(removeNote(id)) }>Delete</button>
                     </li>
                     <li>
                         {updatedAt}
