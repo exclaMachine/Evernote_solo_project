@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addNote } from "../../store/notes";
+import { postNoteThunk } from "../../store/notes";
 
 const AddNote = () => {
     const dispatch = useDispatch();
@@ -23,10 +23,12 @@ const AddNote = () => {
             userId: sessionUser?.id,
             notebookId: null,
             title,
-            content
+            content,
+            // createdAt: new Date(),
+            // updatedAt: new Date()
         }
 
-        dispatch(addNote(newNote));
+        dispatch(postNoteThunk(newNote));
         reset();
     }
 

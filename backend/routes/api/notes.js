@@ -13,16 +13,20 @@ router.get('', asyncHandler (async (req, res) => {
 
 }))
 
+
 router.post('', asyncHandler (async(req, res) => {
-    const  note = await Note.create(req.body);
+    console.log('body', req.body);
+    const note = await Note.create(req.body);
+    console.log('*********', note)
     res.json(note);
 }))
 
+
 router.delete('/:id', asyncHandler(async(req, res) => {
     const deletedId = parseInt(req.params.id, 10)
-    console.log('paramssssss', deletedId);
+    // console.log('paramssssss', deletedId);
     const found = await Note.findByPk(deletedId)
-    console.log('found', found)
+    // console.log('found', found)
 
     await found.destroy()
 

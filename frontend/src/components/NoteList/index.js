@@ -52,7 +52,7 @@ const NoteList = () => {
         // (userNoteList)
         <div>
             {/* <button>Add Note</button> */}
-            <AddNote/>
+            <AddNote />
             <h1>Note List</h1>
             <ul>
                 {usersNotes.map(({ id, title, updatedAt}) => (
