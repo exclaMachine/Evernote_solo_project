@@ -40,7 +40,7 @@ export const removeNotebookThunk = (id) => async dispatch => {
 }
 
 //thunk creator for GET request
-export const fetchNotesThunk = () => async dispatch => {
+export const fetchNotebooksThunk = () => async dispatch => {
     const res = await fetch('/api/notebooks')
     const notebooks = await res.json()
     console.log(notebooks);

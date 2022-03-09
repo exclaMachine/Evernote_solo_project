@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { addNotebook } from "../../store/notebooks";
+import { postNotebookThunk } from "../../store/notebooks";
 
 const AddNotebook = () => {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const AddNotebook = () => {
             title
         }
 
-        dispatch(addNotebook(newNotebook));
+        dispatch(postNotebookThunk(newNotebook));
         reset();
     }
 
