@@ -22,9 +22,29 @@ router.post('', asyncHandler (async(req, res) => {
 router.delete('/:id', asyncHandler (async(req, res) => {
     const deleteId = parseInt(req.params.id, 10)
     // console.log('******', deleteId)
+    // const notesInNotebook = await Note.findAll({
+    //     where: { notebookId: deleteId }
+    // })
+    // console.log(notesInNotebook);
 
+    const notesInNotebook = await Note.destroy({
+            where: { notebookId: deleteId }
+        })
+
+    // const destroyNotes = async (arr) => {
+    //     await arr.map(note => note.destroy())
+    // }
+
+    // destroyNotes(notesInNotebook);
+
+    // notesInNotebook.map(note => await note.destroy());
+
+    // await notesInNotebook.destroy();
+    // const nullify = notesInNotebook.map(note => note.notebookId = null)
+
+    // console.log('nullll', notesInNotebook)
     const notebook = await Notebook.findByPk(deleteId);
-    // console.log({notebook});
+    // console.log('Notebook to delete', notebook);
 
     await notebook.destroy();
 
