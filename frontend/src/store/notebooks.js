@@ -1,5 +1,10 @@
-const LOAD_NOTEBOOKS = 'notebook/loadNotebooks';
-const ADD_NOTEBOOK = 'notebook/addNotebook'
+import { csrfFetch } from './csrf';
+
+
+const LOAD_NOTEBOOKS = 'note/loadNotebooks';
+const ADD_NOTEBOOK = 'note/addNotebook'
+const DELETE_NOTEBOOK = 'note/deleteNotebook'
+
 
 export const loadNotebooks = (notebooks) => {
     return {
@@ -15,8 +20,27 @@ export const addNotebook = (newNotebook) => {
     }
 }
 
+export const deleteNotebook = (id) => {
+    return {
+        type: DELETE_NOTEBOOK,
+        id
+    }
+}
+
+//thunk creator for DELETE request
+export const removeNotebookThunk = (id) => async dispatch => {
+    // const res = await fetch(`/api/notebooks/${id}`, {
+    const res = await csrfFetch(`/api/notebooks/${id}`, {
+        method: 'DELETE',
+    })
+    let idToDelete = await res.json()
+    // console.log('data', data)
+    dispatch(deleteNotebook(idToDelete))
+    // return data;
+}
+
 //thunk creator for GET request
-export const fetchNotebooks = () => async dispatch => {
+export const fetchNotesThunk = () => async dispatch => {
     const res = await fetch('/api/notebooks')
     const notebooks = await res.json()
     console.log(notebooks);
@@ -25,18 +49,18 @@ export const fetchNotebooks = () => async dispatch => {
 }
 
 //thunk creator for POST request
-export const postNotebook = (data) => async dispatch => {
-    const res = await fetch('/api/notebooks', {
+export const postNotebookThunk = (data) => async dispatch => {
+    const res = await csrfFetch('/api/notebooks', {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)
     })
     const newNotebook = await res.json()
-
+    console.log(newNotebook)
     dispatch(addNotebook(newNotebook))
     return newNotebook;
+    // return addDispatch.id;
 }
-
 
 const initialState = {entries: {}}
 
@@ -50,14 +74,19 @@ const notebookReducer = (state = initialState, action) => {
             console.log('action', action)
             action.notebooks.forEach(notebook => newEntries[notebook.id] = notebook)
             newState.entries = newEntries;
-            // console.log('nnnnnn', newState)
             return newState;
-            // return {...state, entries: [...action.notebooks]}
         case ADD_NOTEBOOK:
             newState = {...state};
             newEntries = {...state.entries}
             newEntries[action.newNotebook.id] = action.newNotebook;
             newState.entries = newEntries
+            return newState;
+        case DELETE_NOTEBOOK:
+            newState = {...state};
+            // newState = JSON.parse(JSON.stringify(state));
+            delete newState.entries[action.id]
+            console.log('what is it', newState);
+            console.log('action', action)
             return newState;
         default:
             return state;
