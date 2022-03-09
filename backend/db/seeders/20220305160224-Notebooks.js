@@ -22,6 +22,15 @@ module.exports = {
     }
 
       return queryInterface.bulkInsert('Notebooks', seedNotebooks(22), {});
+      // return queryInterface.bulkInsert('Notebooks', [
+      //   {
+      //   email: 'demo@user.io',
+      //   username: 'Demo-litionMan',
+      //   hashedPassword: bcrypt.hashSync('password')
+      // },
+
+
+      ], {});
   },
 
   down: (queryInterface, Sequelize) => {
