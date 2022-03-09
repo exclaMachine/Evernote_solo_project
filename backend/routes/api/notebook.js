@@ -19,4 +19,16 @@ router.post('', asyncHandler (async(req, res) => {
     res.json(notebook);
 }))
 
+router.delete('/:id', asyncHandler (async(req, res) => {
+    const deleteId = parseInt(req.params.id, 10)
+    // console.log('******', deleteId)
+
+    const notebook = await Notebook.findByPk(deleteId);
+    // console.log({notebook});
+
+    await notebook.destroy();
+
+    return res.json(deleteId);
+}))
+
 module.exports = router;
