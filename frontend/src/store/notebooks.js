@@ -34,9 +34,9 @@ export const removeNotebookThunk = (id) => async dispatch => {
         method: 'DELETE',
     })
     let idToDelete = await res.json()
-    // console.log('data', data)
+    console.log({idToDelete})
     dispatch(deleteNotebook(idToDelete))
-    // return data;
+    return idToDelete;
 }
 
 //thunk creator for GET request
@@ -82,11 +82,9 @@ const notebookReducer = (state = initialState, action) => {
             newState.entries = newEntries
             return newState;
         case DELETE_NOTEBOOK:
-            newState = {...state};
-            // newState = JSON.parse(JSON.stringify(state));
+            // newState = {...state};
+            newState = JSON.parse(JSON.stringify(state));
             delete newState.entries[action.id]
-            console.log('what is it', newState);
-            console.log('action', action)
             return newState;
         default:
             return state;
