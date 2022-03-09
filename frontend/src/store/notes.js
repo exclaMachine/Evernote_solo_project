@@ -4,6 +4,7 @@ import { csrfFetch } from './csrf';
 const LOAD_NOTES = 'note/loadNotes';
 const ADD_NOTE = 'note/addNote'
 const DELETE_NOTE = 'note/deleteNote'
+const UPDATE_NOTE = 'note/updateNote';
 
 
 export const loadNotes = (notes) => {
@@ -24,6 +25,14 @@ export const deleteNote = (id) => {
     return {
         type: DELETE_NOTE,
         id
+    }
+}
+
+export const updateNote = (id, updatedNote) => {
+    return {
+        type: UPDATE_NOTE,
+        id,
+        updatedNote
     }
 }
 
@@ -62,6 +71,18 @@ export const postNoteThunk = (data) => async dispatch => {
     // return addDispatch.id;
 }
 
+//thunk creator for UPDATE request
+export const updateNoteThunk = (id, data) => async dispatch => {
+    const res = await csrfFetch(`/api/notes/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': "application/json"},
+        body: JSON.stringify(data)
+    })
+    const updatedNote = await res.json()
+    dispatch(updateNote(updatedNote))
+    return updatedNote;
+}
+
 const initialState = {entries: {}}
 
 const noteReducer = (state = initialState, action) => {
@@ -87,6 +108,12 @@ const noteReducer = (state = initialState, action) => {
             delete newState.entries[action.id]
             console.log('what is it', newState);
             console.log('action', action)
+            return newState;
+        case UPDATE_NOTE:
+            newState = {...state};
+            newEntries = {...state.entries}
+            newEntries[action.updatedNote.id] = action.updatedNote;
+            newState.entries = newEntries;
             return newState;
         default:
             return state;
