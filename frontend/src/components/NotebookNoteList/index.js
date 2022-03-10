@@ -11,7 +11,7 @@ const NotebookNoteList = ({id}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const notesObject = useSelector((state) => state.noteState.entries);
-    console.log('IIIIID', id);
+    // console.log('IIIIID', id);
     // console.log('noteObj', notesObject)
     const notes = Object.values(notesObject)
 
@@ -35,7 +35,7 @@ const NotebookNoteList = ({id}) => {
         // (userNoteList)
         <div>
             {/* <button>Add Note</button> */}
-            <AddNote />
+            <AddNote id={id}/>
             <h1>Notebook Notes</h1>
             <ul>
                 {notebookNotes.map(({ id, title, content, updatedAt}) => (
