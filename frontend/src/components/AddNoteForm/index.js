@@ -29,13 +29,13 @@ const AddNote = () => {
         }
         if (title && content) {
             setErrors([]);
+            reset();
             return dispatch(postNoteThunk(newNote))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             })
         }
-        reset();
         return setErrors(['Title and content cannot be empty']);
 
         // dispatch(postNoteThunk(newNote));
