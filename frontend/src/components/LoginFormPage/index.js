@@ -25,6 +25,20 @@ const LoginFormPage = () => {
       });
   }
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    let demoUser = {
+      credential: 'Demo-litionMan',
+      password: 'password'
+    }
+    return dispatch(sessionActions.login(demoUser))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      })
+  }
+
   return (
     <form className='loginform' onSubmit={handleSubmit}>
       <ul>
@@ -54,6 +68,11 @@ const LoginFormPage = () => {
       </label>
       <br></br>
       <button className='button' type="submit">Log In</button>
+
+      <button className='Demo'
+      onClick={demoLogin}
+      >Demo User</button>
+
     </form>
   );
 }
