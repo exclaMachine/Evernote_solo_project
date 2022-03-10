@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 
 import NotebookList from "./components/NotebookList";
 import AddNotebook from './components/AddNotebook'
-import Splashpage from "./components/NoteList";
+import Splashpage from "./components/Splashpage";
 import NoteList from "./components/NoteList";
 
 function App() {
@@ -34,6 +34,9 @@ function App() {
         </Switch>
       )}
       <Switch>
+        <Route exact path='/'>
+          <Splashpage/>
+        </Route>
         <Route path='/api/notes'>
           <NoteList />
         </Route>
