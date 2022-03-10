@@ -10,7 +10,7 @@ const AddNote = () => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-
+    const [errors, setErrors] = useState([]);
 
     const reset = () => {
         setTitle('')
@@ -27,15 +27,28 @@ const AddNote = () => {
             // createdAt: new Date(),
             // updatedAt: new Date()
         }
-
-        dispatch(postNoteThunk(newNote));
+        if (title && content) {
+            setErrors([]);
+            return dispatch(postNoteThunk(newNote))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            })
+        }
         reset();
+        return setErrors(['Title and content cannot be empty']);
+
+        // dispatch(postNoteThunk(newNote));
+        // reset();
     }
 
     return (
         <div>
             <h1>Create Note</h1>
             <form onSubmit={handleSubmit}>
+            <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
                 <label>Title</label>
                 <input
                 type='text'

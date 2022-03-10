@@ -6,6 +6,18 @@ const { Note, User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
+
+const validateNote = [
+    check('title')
+      .notEmpty()
+      .withMessage('Please provide a title.'),
+    check('content')
+      .notEmpty()
+      .withMessage('Please provide a note.'),
+    handleValidationErrors
+  ];
+
+
 router.get('', asyncHandler (async (req, res) => {
 
     const notes = await Note.findAll();
@@ -14,9 +26,11 @@ router.get('', asyncHandler (async (req, res) => {
 }))
 
 
-router.post('', asyncHandler (async(req, res) => {
+router.post('', validateNote, asyncHandler (async(req, res, next) => {
     console.log('body', req.body);
     const note = await Note.create(req.body);
+
+
     // console.log('*********', note)
     res.json(note);
 }))
