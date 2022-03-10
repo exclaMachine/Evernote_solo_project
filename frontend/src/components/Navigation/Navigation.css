@@ -24,6 +24,7 @@ li {
 } */
 
 .logins {
+    text-decoration: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -31,6 +32,17 @@ li {
     margin: 10px;
     color: black
 }
+
 .logins:hover {
+    text-decoration: none;
     color: #00a82d;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 40px;
+    color: black
 }
