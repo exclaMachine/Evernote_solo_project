@@ -47,6 +47,7 @@ const AddNotebook = () => {
                 <label>Notebook Title</label>
                 <input
                 type='text'
+                value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 />
                 <button type="submit">Submit</button>
