@@ -3,21 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch, NavLink} from 'react-router-dom'
 import AddNote from "../AddNoteForm";
 import UpdateNote from "../EditNoteForm";
-import './NoteList.css'
+// import './NoteList.css'
 
 import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
-const NoteList = () => {
+const NotebookNoteList = ({id}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const notesObject = useSelector((state) => state.noteState.entries);
-
+    // console.log('IIIIID', id);
     // console.log('noteObj', notesObject)
     const notes = Object.values(notesObject)
 
     let usersNotes = notes.filter(note => note?.userId === sessionUser?.id)
+    // console.log('right page', usersNotes)
+    let notebookNotes = usersNotes.filter(note => note?.notebookId === id)
+    // console.log('notebookNotes', notebookNotes)
 
-    console.log('notes', notes)
+    // console.log('notes', notes)
 
     useEffect(() => {
         dispatch(fetchNotes())
@@ -26,38 +29,16 @@ const NoteList = () => {
         // }
     }, [dispatch])
 
-    let userNoteList;
-    // if (sessionUser) {
-    //     userNoteList = (
-    //         <div>
-    //         {/* <button>Add Note</button> */}
-    //         <h1>Note List</h1>
-    //         <ul>
-    //             {usersNotes.map(({ id, title, updatedAt}) => (
-    //                 <div>
-    //                 <li key={id}>
-    //                     {title}
-    //                 </li>
-    //                 <li>
-    //                     {updatedAt}
-    //                 </li>
-    //                 </div>
-    //             ))}
-    //         </ul>
-    //     </div>
-    //     )
-    // }
-
 
     return (
         //I think this is giving me an error if I refresh...
         // (userNoteList)
         <div>
             {/* <button>Add Note</button> */}
-            <AddNote />
-            <h1>Note List</h1>
+            <AddNote id={id}/>
+            <h1>Notebook Notes</h1>
             <ul>
-                {usersNotes.map(({ id, title, content, updatedAt}) => (
+                {notebookNotes.map(({ id, title, content, updatedAt}) => (
         <div>
                     <li key={id}>
                     <UpdateNote id={id}/>
@@ -76,4 +57,4 @@ const NoteList = () => {
     )
 }
 
-export default NoteList;
+export default NotebookNoteList;

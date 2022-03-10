@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { postNoteThunk } from "../../store/notes";
 
-const AddNote = () => {
+const AddNote = ({id}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -19,14 +19,25 @@ const AddNote = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newNote = {
-            userId: sessionUser?.id,
-            notebookId: null,
-            title,
-            content,
-            // createdAt: new Date(),
-            // updatedAt: new Date()
+        let newNote;
+        if (id) {
+            newNote = {
+                userId: sessionUser?.id,
+                notebookId: id,
+                title,
+                content,
+                // createdAt: new Date(),
+                // updatedAt: new Date()
+            }
+        }  else {
+                newNote = {
+                    userId: sessionUser?.id,
+                    notebookId: null,
+                    title,
+                    content,
+            }
         }
+
         if (title && content) {
             setErrors([]);
             reset();

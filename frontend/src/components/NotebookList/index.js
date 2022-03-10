@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch} from 'react-router-dom'
+import { NavLink, Route, Switch} from 'react-router-dom'
+import NotebookNoteList from "../NotebookNoteList";
 // import notebook from "../../../../backend/db/models/notebook";
 
 import { fetchNotebooksThunk, removeNotebookThunk } from "../../store/notebooks";
@@ -30,8 +31,10 @@ const NotebookList = () => {
             <ul>
                 {usersNotebooks.map(({ id, title}) => (
                     <li key={id}>
-                        {title}
+
+                     {title}
                     <button onClick={() => dispatch(removeNotebookThunk(id))}>Delete Notebook</button>
+                     <NotebookNoteList id={id}/>
                     </li>
                 ))}
             </ul>

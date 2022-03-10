@@ -11,7 +11,7 @@ const Navigation = ({isLoaded}) => {
     if (sessionUser) {
         sessionLinks = (
             <div>
-                <NavLink to='/'>
+            <NavLink to='/'>
                 Home
             </NavLink>
             <br></br>
