@@ -7,19 +7,20 @@ import UpdateNote from "../EditNoteForm";
 
 import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
-const NotebookNoteList = (id) => {
+const NotebookNoteList = ({id}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const notesObject = useSelector((state) => state.noteState.entries);
-
+    console.log('IIIIID', id);
     // console.log('noteObj', notesObject)
     const notes = Object.values(notesObject)
 
     let usersNotes = notes.filter(note => note?.userId === sessionUser?.id)
+    // console.log('right page', usersNotes)
     let notebookNotes = usersNotes.filter(note => note?.notebookId === id)
+    // console.log('notebookNotes', notebookNotes)
 
-
-    console.log('notes', notes)
+    // console.log('notes', notes)
 
     useEffect(() => {
         dispatch(fetchNotes())
@@ -35,7 +36,7 @@ const NotebookNoteList = (id) => {
         <div>
             {/* <button>Add Note</button> */}
             <AddNote />
-            <h1>Note List</h1>
+            <h1>Notebook Notes</h1>
             <ul>
                 {notebookNotes.map(({ id, title, content, updatedAt}) => (
         <div>
@@ -44,7 +45,7 @@ const NotebookNoteList = (id) => {
                         <h1>{title}</h1>
                         <br></br>
                         {content}
-                    <button onClick={() => dispatch(removeNote(id)) }>Delete</button>
+                    <button onClick={() => dispatch(removeNote(id)) }>Delete Note</button>
                     </li>
                     {/* <li>
                         {updatedAt}

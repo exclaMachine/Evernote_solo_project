@@ -31,10 +31,10 @@ const NotebookList = () => {
             <ul>
                 {usersNotebooks.map(({ id, title}) => (
                     <li key={id}>
-                    <NavLink>
-                        <NotebookNoteList notebookId={id}>{title}</NotebookNoteList>
-                    </NavLink>
+
+                     {title}
                     <button onClick={() => dispatch(removeNotebookThunk(id))}>Delete Notebook</button>
+                     <NotebookNoteList id={id}/>
                     </li>
                 ))}
             </ul>
