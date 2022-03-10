@@ -10,6 +10,7 @@ const Navigation = ({isLoaded}) => {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
+        <div>
             <div>
             <NavLink to='/'>
                 Home
@@ -24,25 +25,30 @@ const Navigation = ({isLoaded}) => {
             </NavLink>
                 <ProfileButton user={sessionUser}/>
             </div>
+         </div>
         )
     } else {
         sessionLinks = (
-        <>
+        <div className='logins'>
             <NavLink to='/login'>
                 Login
             </NavLink>
+            <br></br>
             <NavLink to='/signup'>
                 Sign up
             </NavLink>
-        </>
+        </div>
         )
     }
     return (
+        <div>
         <ul>
+        <h2>Noti-Ty</h2>
             <li>
             {isLoaded && sessionLinks}
             </li>
         </ul>
+        </div>
     )
 }
 
