@@ -22,6 +22,7 @@ li {
     margin-top: 10px;
     font-family: 'Courier New', Courier, monospace;
     border: 2px black solid;
+    border-radius: 7px;
     padding: 10px
 }
 
@@ -32,6 +33,7 @@ li {
     margin-top: 10px;
     font-family: 'Courier New', Courier, monospace;
     border: 2px black solid;
+    border-radius: 7px;
     padding: 10px
 }
 

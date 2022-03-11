@@ -64,8 +64,8 @@ const NoteList = () => {
                         {/* <br></br> */}
                         {/* {content} */}
                     <UpdateNote id={id}/>
-                    <button onClick={() => dispatch(removeNote(id)) }>Delete Note</button>
                     {updatedAt}
+                    <button onClick={() => dispatch(removeNote(id)) }>Delete Note</button>
                     </li>
                     {/* <li>
                         {updatedAt}
