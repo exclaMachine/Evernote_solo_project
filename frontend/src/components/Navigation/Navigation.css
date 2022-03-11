@@ -1,7 +1,7 @@
-button {
+/* button {
     display: flex;
     justify-content: space-around;
-    background-color: aquamarine;
+    background-color: #00a82d;
     padding: 10px;
     margin-bottom: 10px;
     font-family: 'Courier New', Courier, monospace;
@@ -10,7 +10,7 @@ button {
 label {
     display: flex;
     justify-content: space-around;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 10px;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -21,4 +21,28 @@ li {
     flex-direction: column;
     margin-top: 10px;
     font-family: 'Courier New', Courier, monospace;
+} */
+
+.logins {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 10px;
+    color: black
+}
+
+.logins:hover {
+    text-decoration: none;
+    color: #00a82d;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 40px;
+    color: black
 }
