@@ -18,11 +18,22 @@ const UpdateNote = ({id}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const updatedNote = {
-            userId: sessionUser?.id,
-            notebookId: null,
-            title,
-            content,
+        let updatedNote;
+            if (id) {
+                updatedNote = {
+                    userId: sessionUser?.id,
+                    notebookId: id,
+                    title,
+                    content,
+                }
+            } else {
+                updatedNote = {
+                    userId: sessionUser?.id,
+                    notebookId: null,
+                    title,
+                    content,
+            }
+
         }
 
         // const reset = () => {
