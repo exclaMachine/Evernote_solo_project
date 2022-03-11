@@ -14,15 +14,25 @@ const UpdateNote = ({id}) => {
     const [title, setTitle] = useState(note[id].title);
     const [content, setContent] = useState(note[id].content);
 
-
+    // console.log('id', id);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const updatedNote = {
-            userId: sessionUser?.id,
-            notebookId: null,
-            title,
-            content,
+        let updatedNote;
+            if (id) {
+                updatedNote = {
+                    userId: sessionUser?.id,
+                    notebookId: note[id].notebookId,
+                    title,
+                    content,
+                }
+            } else {
+                updatedNote = {
+                    userId: sessionUser?.id,
+                    notebookId: null,
+                    title,
+                    content,
+            }
         }
 
         // const reset = () => {

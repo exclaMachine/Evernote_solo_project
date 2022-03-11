@@ -36,7 +36,7 @@ const NotebookNoteList = ({id, title}) => {
         <div>
             {/* <button>Add Note</button> */}
             <AddNote id={id}/>
-            <h1>Notes in {title} Notebook</h1>
+            <h1>Notes in "{title}" notebook</h1>
             <ul>
                 {notebookNotes.map(({ id, title, content, updatedAt}) => (
         <div>
