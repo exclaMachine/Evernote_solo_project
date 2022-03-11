@@ -15,9 +15,16 @@ const NoteList = () => {
     // console.log('noteObj', notesObject)
     const notes = Object.values(notesObject)
 
-    let usersNotes = notes.filter(note => note?.userId === sessionUser?.id)
 
-    console.log('notes', notes)
+    let usersNotes = notes.filter(note => note?.userId === sessionUser?.id)
+    const notesSorted = usersNotes.reverse();
+    console.log('usersNotes', usersNotes);
+
+    // let reverseOrder = arr => {
+    //     for (let i = arr.length; i >= 0; i--) {
+
+    //     }
+    // }
 
     useEffect(() => {
         dispatch(fetchNotes())
@@ -57,7 +64,8 @@ const NoteList = () => {
             <AddNote />
             <h1>Note List</h1>
             <ul>
-                {usersNotes.map(({ id, title, content, updatedAt}) => (
+
+                {notesSorted.map(({ id, title, content, updatedAt}) => (
         <div>
                     <li key={id}>
                         {/* <h1>{title}</h1> */}
