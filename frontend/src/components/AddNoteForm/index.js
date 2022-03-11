@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { postNoteThunk } from "../../store/notes";
+import './AddNoteForm.css'
+
 
 const AddNote = ({id}) => {
     const dispatch = useDispatch();
@@ -54,25 +56,27 @@ const AddNote = ({id}) => {
     }
 
     return (
-        <div>
-            <h1>Create Note</h1>
+        <div className="addnote-form">
+            {/* <h1>Create Note</h1> */}
             <form onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-                <label>Title</label>
+                <label>Note Title</label>
                 <input
                 type='text'
                 value= {title}
                 onChange={(e) => setTitle(e.target.value)}
                 />
                 <label>Content</label>
-                <input
-                type='textarea'
+                <textarea
+                className="textarea"
+                rows='2'
+                cols='33'
                 value= {content}
                 onChange={(e) => setContent(e.target.value)}
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">Create Note</button>
             </form>
         </div>
     )
