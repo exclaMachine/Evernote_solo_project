@@ -45,6 +45,7 @@ const NotebookNoteList = ({id, title}) => {
                         {/* <h1>{title}</h1> */}
                         <br></br>
                         {/* {content} */}
+                    {updatedAt}
                     <button onClick={() => dispatch(removeNote(id)) }>Delete Note</button>
                     </li>
                     {/* <li>
