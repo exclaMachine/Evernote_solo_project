@@ -7,7 +7,7 @@ import UpdateNote from "../EditNoteForm";
 
 import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
-const NotebookNoteList = ({id}) => {
+const NotebookNoteList = ({id, title}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const notesObject = useSelector((state) => state.noteState.entries);
@@ -36,15 +36,15 @@ const NotebookNoteList = ({id}) => {
         <div>
             {/* <button>Add Note</button> */}
             <AddNote id={id}/>
-            <h1>Notebook Notes</h1>
+            <h1>Notes in {title} Notebook</h1>
             <ul>
                 {notebookNotes.map(({ id, title, content, updatedAt}) => (
         <div>
                     <li key={id}>
                     <UpdateNote id={id}/>
-                        <h1>{title}</h1>
+                        {/* <h1>{title}</h1> */}
                         <br></br>
-                        {content}
+                        {/* {content} */}
                     <button onClick={() => dispatch(removeNote(id)) }>Delete Note</button>
                     </li>
                     {/* <li>

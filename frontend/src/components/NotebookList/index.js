@@ -27,14 +27,14 @@ const NotebookList = () => {
     return (
         <div>
             {/* <button>Add Notebook</button> */}
-            <h1>Notebook List</h1>
+            <h1>List of Notebooks</h1>
             <ul>
                 {usersNotebooks.map(({ id, title}) => (
                     <li key={id}>
 
-                     {title}
+                     <h2>Notebook: {title}</h2>
                     <button onClick={() => dispatch(removeNotebookThunk(id))}>Delete Notebook</button>
-                     <NotebookNoteList id={id}/>
+                     <NotebookNoteList id={id} title={title}/>
                     </li>
                 ))}
             </ul>
