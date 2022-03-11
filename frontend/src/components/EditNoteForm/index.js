@@ -9,16 +9,12 @@ const UpdateNote = ({id}) => {
     const note = useSelector(state => state.noteState.entries)
 
 
-    console.log('currentTitle', note)
+    console.log('currentTitle', note[id])
     //similar to post but this is set to what it previously was
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    const [title, setTitle] = useState(note[id].title);
+    const [content, setContent] = useState(note[id].content);
 
 
-    const reset = () => {
-        setTitle('')
-        setContent('')
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,8 +25,12 @@ const UpdateNote = ({id}) => {
             content,
         }
 
+        // const reset = () => {
+        //     setTitle(note[id].title)
+        //     setContent(note[id].content)
+        // }
         dispatch(updateNoteThunk(id, updatedNote));
-        reset();
+        // reset();
     }
 
     return (
