@@ -20,7 +20,10 @@ const validateNote = [
 
 router.get('', asyncHandler (async (req, res) => {
 
-    const notes = await Note.findAll();
+    const notes = await Note.findAll(
+      // order: [['id', 'DESC']]
+    );
+
     res.json(notes);
 
 }))
