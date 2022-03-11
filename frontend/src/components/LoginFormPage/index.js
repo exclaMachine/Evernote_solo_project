@@ -40,11 +40,16 @@ const LoginFormPage = () => {
   }
 
   return (
+    <div className='minimal-body'>
+      <div className='heading'>
+      <h2>Noti-Ty</h2>
+      </div>
+      <p className="tagline">Remember, everything's important.</p>
     <form className='loginform' onSubmit={handleSubmit}>
-      <ul>
+      <ul className='errors'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <div>
+      <div className='reg-form label'>
         <label className='label'>
             Username or Email
         <br></br>
@@ -55,7 +60,6 @@ const LoginFormPage = () => {
             required
             />
         </label>
-      </div>
       <label>
         Password
         <br></br>
@@ -66,14 +70,17 @@ const LoginFormPage = () => {
           required
         />
       </label>
+      </div>
       <br></br>
-      <button className='button' type="submit">Log In</button>
+      <div className='button-container'>
+        <button className='button' type="submit">Log In</button>
 
-      <button className='Demo'
-      onClick={demoLogin}
-      >Demo User</button>
-
+        <button className='Demo'
+        onClick={demoLogin}
+        >Demo User</button>
+      </div>
     </form>
+    </div>
   );
 }
 
