@@ -35,7 +35,7 @@ const UpdateNote = ({id}) => {
 
     return (
         <div>
-            <h1>Update Note</h1>
+            {/* <h1>Update Note</h1> */}
             <form onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input
