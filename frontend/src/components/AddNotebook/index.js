@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { postNotebookThunk } from "../../store/notebooks";
+import './AddNotebook.css'
+import '../../../src/index.css'
 
 const AddNotebook = () => {
     const dispatch = useDispatch();
@@ -38,19 +40,20 @@ const AddNotebook = () => {
     }
 
     return (
-        <div>
-            <h1>Create Notebook</h1>
+        <div className="addnotebook-form">
+            {/* <h1>Create Notebook</h1> */}
             <form onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
                 <label>Notebook Title</label>
                 <input
+                className="title-input"
                 type='text'
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">Create Notebook</button>
             </form>
         </div>
     )

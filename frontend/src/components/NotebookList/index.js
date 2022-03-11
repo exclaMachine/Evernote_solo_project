@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Route, Switch} from 'react-router-dom'
 import NotebookNoteList from "../NotebookNoteList";
 // import notebook from "../../../../backend/db/models/notebook";
-
+import './NotebookList.css'
 import { fetchNotebooksThunk, removeNotebookThunk } from "../../store/notebooks";
 
 const NotebookList = () => {
@@ -32,7 +32,7 @@ const NotebookList = () => {
                 {usersNotebooks.map(({ id, title}) => (
                     <li key={id}>
 
-                     <h2>Notebook: {title}</h2>
+                     <h2 className="notebook-title">Notebook: {title}</h2>
                     <button onClick={() => dispatch(removeNotebookThunk(id))}>Delete Notebook</button>
                      <NotebookNoteList id={id} title={title}/>
                     </li>
