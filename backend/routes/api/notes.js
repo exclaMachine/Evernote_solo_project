@@ -51,7 +51,7 @@ router.put('/:id', asyncHandler(async(req, res) => {
     const updatedId = parseInt(req.params.id, 10);
 
     const found = await Note.findByPk(updatedId)
-    console.log({found});
+    // console.log({found});
     const updated = await found.update(req.body);
 
     return res.json(updated)

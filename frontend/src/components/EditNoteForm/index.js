@@ -6,8 +6,10 @@ import { updateNoteThunk } from "../../store/notes";
 const UpdateNote = ({id}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const note = useSelector(state => state.noteState.entries)
 
-    console.log('currentTitle', id)
+
+    console.log('currentTitle', note)
     //similar to post but this is set to what it previously was
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -42,12 +44,12 @@ const UpdateNote = ({id}) => {
                 onChange={(e) => setTitle(e.target.value)}
                 />
                 <label>Content</label>
-                <input
-                type='textarea'
+                <textarea
+                // type='textarea'
                 value= {content}
                 onChange={(e) => setContent(e.target.value)}
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">Update Note</button>
             </form>
         </div>
     )
