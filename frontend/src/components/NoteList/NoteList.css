@@ -1,4 +1,4 @@
-button {
+/* button {
     display: flex;
     justify-content: space-around;
     background-color: aquamarine;
@@ -23,4 +23,20 @@ li {
     font-family: 'Courier New', Courier, monospace;
     border: 2px black solid;
     padding: 10px
+} */
+
+button {
+    display: flex;
+    justify-content: center;
+    width: 75px;
+    border-radius: 7px;
+    background-color: #00a82d;
+    border-color: #00a82d;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
