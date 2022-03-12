@@ -46,3 +46,8 @@ li {
     margin: 40px;
     color: black
 }
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+}
