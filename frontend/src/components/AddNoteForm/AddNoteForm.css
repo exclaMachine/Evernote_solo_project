@@ -10,5 +10,24 @@ button {
 }
 
 .textarea {
-    height: 100px;
+    height: 200px;
+    width: 600px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.label.title {
+    font-size: 30px;
+}
+
+.title-input {
+    font-size: 30px;
+}
+
+.label.content {
+    font-size: 20px;
 }
