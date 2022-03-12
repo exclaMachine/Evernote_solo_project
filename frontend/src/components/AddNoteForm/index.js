@@ -62,16 +62,17 @@ const AddNote = ({id}) => {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-                <label>Note Title</label>
+                <label className='label title'>Note Title</label>
                 <input
+                className="title-input"
                 type='text'
                 value= {title}
                 onChange={(e) => setTitle(e.target.value)}
                 />
-                <label>Content</label>
+                <label className='label content'>Content</label>
                 <textarea
                 className="textarea"
-                rows='2'
+                rows='3'
                 cols='33'
                 value= {content}
                 onChange={(e) => setContent(e.target.value)}
