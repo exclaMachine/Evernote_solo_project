@@ -4,6 +4,7 @@ import { Route, Switch, NavLink} from 'react-router-dom'
 import AddNote from "../AddNoteForm";
 import UpdateNote from "../EditNoteForm";
 import './NoteList.css'
+import AboutFooter from "../Navigation/About";
 
 import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
@@ -79,8 +80,12 @@ const NoteList = () => {
                         {updatedAt}
                     </li> */}
                     </div>
+
                 ))}
             </ul>
+            <footer>
+            <AboutFooter/>
+            </footer>
         </div>
     )
 }

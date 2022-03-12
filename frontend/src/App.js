@@ -5,6 +5,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import AboutFooter from "./components/Navigation/About";
 
 import NotebookList from "./components/NotebookList";
 import AddNotebook from './components/AddNotebook'
@@ -44,6 +45,9 @@ function App() {
           <AddNotebook/>
           <NotebookList/>
         </Route>
+
+         <AboutFooter/>
+
       </Switch>
     </>
   );

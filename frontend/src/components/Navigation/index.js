@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"
 import ProfileButton from "./ProfileButton"
 import { useSelector } from 'react-redux'
 import './Navigation.css'
+import AboutFooter from './About'
 
 const Navigation = ({isLoaded}) => {
     const sessionUser = useSelector(state => state.session.user);
@@ -12,7 +13,7 @@ const Navigation = ({isLoaded}) => {
         sessionLinks = (
         <div >
             <div className='links-container'>
-            <NavLink to='/' style={{ textDecoration: 'none' }}>
+            <NavLink to='/' className='navlink' style={{ textDecoration: 'none' }}>
                 Home
             </NavLink>
             <br></br>

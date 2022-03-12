@@ -5,6 +5,7 @@ import NotebookNoteList from "../NotebookNoteList";
 // import notebook from "../../../../backend/db/models/notebook";
 import './NotebookList.css'
 import { fetchNotebooksThunk, removeNotebookThunk } from "../../store/notebooks";
+import AboutFooter from "../Navigation/About";
 
 const NotebookList = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const NotebookList = () => {
 
     return (
         <div>
+        <div>
             {/* <button>Add Notebook</button> */}
             <h1>List of Notebooks</h1>
             <ul>
@@ -38,6 +40,10 @@ const NotebookList = () => {
                     </li>
                 ))}
             </ul>
+        </div>
+        <footer>
+        <AboutFooter/>
+        </footer>
         </div>
     )
 }
