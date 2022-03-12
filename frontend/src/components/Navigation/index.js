@@ -13,15 +13,15 @@ const Navigation = ({isLoaded}) => {
         sessionLinks = (
         <div >
             <div className='links-container'>
-            <NavLink to='/' className='navlink' style={{ textDecoration: 'none' }}>
+            <NavLink to='/' className='navlink' >
                 Home
             </NavLink>
             <br></br>
-            <NavLink to='/api/notes' style={{ textDecoration: 'none' }}>
+            <NavLink to='/api/notes' className='navlink'>
                 Notes
             </NavLink>
             <br></br>
-            <NavLink to='/api/notebooks' style={{ textDecoration: 'none' }}>
+            <NavLink to='/api/notebooks' className='navlink'>
                 Notebooks
             </NavLink>
                 <ProfileButton user={sessionUser}/>
@@ -31,11 +31,11 @@ const Navigation = ({isLoaded}) => {
     } else {
         sessionLinks = (
         <div className='logins'>
-            <NavLink to='/login' style={{ textDecoration: 'none' }}>
+            <NavLink to='/login' className='navlink'>
                 Login
             </NavLink>
             <br></br>
-            <NavLink to='/signup' style={{ textDecoration: 'none' }}>
+            <NavLink to='/signup' className='navlink'>
                 Sign up
             </NavLink>
         </div>

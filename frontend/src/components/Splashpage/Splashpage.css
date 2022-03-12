@@ -41,3 +41,8 @@ textarea {
     width: 100%;
     height: 300px;
 }
+
+.punc {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+}
