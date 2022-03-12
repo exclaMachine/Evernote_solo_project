@@ -28,9 +28,9 @@ const Splashpage = () => {
         <div>
             <h1>Home</h1>
             <div className="punctuators">
-                <h2>Need help with the grammar and punctuation of your notes?</h2>
-                <a href="https://www.webtoons.com/en/challenge/the-punctuators-super-powered-punctuation/list?title_no=318764">Check out <strong>The Punctuators: Super-Powered Punctuation</strong></a>
-                <img src="./Web_1.jpg"></img>
+                <h2 className='punc'>Need help with the grammar and punctuation of your notes?</h2>
+                <a className='link' href="https://www.webtoons.com/en/challenge/the-punctuators-super-powered-punctuation/list?title_no=318764">Check out <strong>The Punctuators: Super-Powered Punctuation</strong></a>
+                {/* <img src="./Web_1.jpg"></img> */}
             </div>
 
             <div className="scratch">
