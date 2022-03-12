@@ -13,7 +13,7 @@ const UpdateNote = ({id}) => {
     //similar to post but this is set to what it previously was
     const [title, setTitle] = useState(note[id].title);
     const [content, setContent] = useState(note[id].content);
-
+    const [errors, setErrors] = useState([])
     // console.log('id', id);
 
     const handleSubmit = (e) => {
@@ -35,11 +35,21 @@ const UpdateNote = ({id}) => {
             }
         }
 
+        if (title && content) {
+            setErrors([]);
+            return dispatch(updateNoteThunk(id, updatedNote))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            })
+        }
+        return setErrors(['Title and content cannot be empty']);
+
         // const reset = () => {
         //     setTitle(note[id].title)
         //     setContent(note[id].content)
         // }
-        dispatch(updateNoteThunk(id, updatedNote));
+        // dispatch(updateNoteThunk(id, updatedNote));
         // reset();
     }
 
@@ -47,6 +57,9 @@ const UpdateNote = ({id}) => {
         <div>
             {/* <h1>Update Note</h1> */}
             <form onSubmit={handleSubmit}>
+            <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
                 <label>Title</label>
                 <input
                 type='text'

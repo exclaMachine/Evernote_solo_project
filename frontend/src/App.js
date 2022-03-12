@@ -46,8 +46,6 @@ function App() {
           <NotebookList/>
         </Route>
 
-         <AboutFooter/>
-
       </Switch>
     </>
   );
