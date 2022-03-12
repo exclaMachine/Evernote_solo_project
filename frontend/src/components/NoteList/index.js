@@ -5,6 +5,7 @@ import AddNote from "../AddNoteForm";
 import UpdateNote from "../EditNoteForm";
 import './NoteList.css'
 import AboutFooter from "../Navigation/About";
+import { DateTime } from "luxon"
 
 import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
@@ -21,6 +22,16 @@ const NoteList = () => {
     const notesSorted = usersNotes.reverse();
     console.log('usersNotes', usersNotes);
 
+    // let formatter = new Intl.DateTimeFormat("en-US", {
+    //     year: 'numeric',
+    //     month: "long",
+    //     day: '2-digit',
+    // })
+
+    let SetDate = (sDate) => {
+        let adjusted = sDate.replace(/^([0-9]{4})-([0-9]{2})-([0-9]{2}).([0-9]{2}):([0-9]{2}):([0-9]{3}).$/, "$1/$2/$3 $4:$5:$6");
+        return new Date(adjusted)
+    }
     // let reverseOrder = arr => {
     //     for (let i = arr.length; i >= 0; i--) {
 
@@ -73,7 +84,7 @@ const NoteList = () => {
                         {/* <br></br> */}
                         {/* {content} */}
                     <UpdateNote id={id}/>
-                    {updatedAt}
+                    <h3>Updated on {SetDate(updatedAt).toString()}</h3>
                     <button onClick={() => dispatch(removeNote(id)) }>Delete Note</button>
                     </li>
                     {/* <li>
