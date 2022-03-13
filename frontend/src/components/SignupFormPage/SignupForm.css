@@ -25,7 +25,7 @@
     justify-content: center;
     margin: 10px;
 }
-.signupbutton {
+.button {
     display: flex;
     justify-content: center;
     border-radius: 7px;
@@ -33,6 +33,11 @@
     border-color: #00a82d;
     color: white;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.button:hover {
+    transition: 0.2s ease-in;
+    background-color: #00751f;
 }
 
 .reg-form label {
