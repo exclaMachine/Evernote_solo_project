@@ -40,6 +40,7 @@ const AddNotebook = () => {
     }
 
     return (
+        <div className='background'>
         <div className="addnotebook-form">
             {/* <h1>Create Notebook</h1> */}
             <form onSubmit={handleSubmit}>
@@ -55,6 +56,7 @@ const AddNotebook = () => {
                 />
                 <button type="submit">Create Notebook</button>
             </form>
+        </div>
         </div>
     )
 }

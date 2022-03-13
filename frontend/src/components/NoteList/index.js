@@ -71,7 +71,7 @@ const NoteList = () => {
     return (
         //I think this is giving me an error if I refresh...
         // (userNoteList)
-        <div>
+        <div className='background'>
             {/* <button>Add Note</button> */}
             <AddNote />
             <h1>Note List</h1>
