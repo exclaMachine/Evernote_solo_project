@@ -10,20 +10,23 @@ const Navigation = ({isLoaded}) => {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-        <div >
-            <div className='links-container'>
-            <NavLink to='/' className='navlink' >
-                Home
-            </NavLink>
-            <br></br>
-            <NavLink to='/api/notes' className='navlink'>
-                Notes
-            </NavLink>
-            <br></br>
-            <NavLink to='/api/notebooks' className='navlink'>
-                Notebooks
-            </NavLink>
-                <ProfileButton user={sessionUser}/>
+        <div>
+            <div className='profile-button'><ProfileButton user={sessionUser}/></div>
+            <div >
+                <div className='links-container'>
+                <NavLink to='/' className='navlink' >
+                    Home
+                </NavLink>
+                <br></br>
+                <NavLink to='/api/notes' className='navlink'>
+                    Notes
+                </NavLink>
+                <br></br>
+                <NavLink to='/api/notebooks' className='navlink'>
+                    Notebooks
+                </NavLink>
+
+                </div>
             </div>
          </div>
         )

@@ -62,6 +62,7 @@ const UpdateNote = ({id}) => {
             </ul>
                 <label className="label title">Title</label>
                 <input
+                className='title-input'
                 type='text'
                 value= {title}
                 onChange={(e) => setTitle(e.target.value)}

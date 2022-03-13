@@ -34,8 +34,8 @@ const Splashpage = () => {
             </div>
 
             <div className="scratch">
-                <h2>Scratch Pad</h2>
-                <textarea placeholder="start writing...">
+                <h2>Ephemeral Scratch Pad</h2>
+                <textarea placeholder="All these notes are lost to the ether so hit the Notes or Notebooks links at the top to make something more permanent :)">
 
                 </textarea>
             </div>

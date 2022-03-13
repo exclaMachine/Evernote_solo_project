@@ -73,7 +73,7 @@ const LoginFormPage = () => {
       </div>
       <br></br>
       <div className='button-container'>
-        <button className='button' type="submit">Log In</button>
+        <button className='button' type="submit">Log <br></br>In</button>
 
         <button className='Demo'
         onClick={demoLogin}
