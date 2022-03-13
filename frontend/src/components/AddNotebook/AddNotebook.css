@@ -12,3 +12,7 @@ button {
 .textarea {
     height: 100px;
 }
+
+.label.title {
+    font-size: 30px;
+}

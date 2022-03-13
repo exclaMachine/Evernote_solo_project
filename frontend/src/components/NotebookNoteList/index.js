@@ -21,6 +21,11 @@ const NotebookNoteList = ({id, title}) => {
     let notebookNotes = usersNotes.filter(note => note?.notebookId === id)
     // console.log('notebookNotes', notebookNotes)
 
+    let SetDate = (sDate) => {
+        let adjusted = sDate.replace(/^([0-9]{4})-([0-9]{2})-([0-9]{2}).([0-9]{2}):([0-9]{2}):([0-9]{3}).$/, "$1/$2/$3 $4:$5:$6");
+        return new Date(adjusted)
+    }
+
     // console.log('notes', notes)
 
     useEffect(() => {
