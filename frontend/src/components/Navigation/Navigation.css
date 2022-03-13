@@ -76,3 +76,8 @@ li {
     /* border: black solid 1px; */
     color: gray;
 }
+
+.profile-button {
+    display: flex;
+    justify-content: start;
+}

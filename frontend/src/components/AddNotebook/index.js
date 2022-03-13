@@ -43,10 +43,10 @@ const AddNotebook = () => {
         <div className="addnotebook-form">
             {/* <h1>Create Notebook</h1> */}
             <form onSubmit={handleSubmit}>
-            <ul>
+            <ul className='errors'>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-                <label className="label title">Notebook Title</label>
+                <label className="label title">New Notebook Title</label>
                 <input
                 className="title-input"
                 type='text'

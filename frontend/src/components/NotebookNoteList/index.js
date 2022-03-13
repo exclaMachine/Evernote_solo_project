@@ -42,7 +42,7 @@ const NotebookNoteList = ({id, title}) => {
         <div>
             {/* <button>Add Note</button> */}
             <AddNote id={id}/>
-            <h1>Notes in "{title}" notebook</h1>
+            <h1>Notes in "{title}" notebook ({notebookNotes.length})</h1>
             <ul>
                 {notebookNotes.map(({ id, title, content, updatedAt}) => (
         <div>
@@ -51,7 +51,7 @@ const NotebookNoteList = ({id, title}) => {
                         {/* <h1>{title}</h1> */}
                         <br></br>
                         {/* {content} */}
-                    {updatedAt}
+                        <h3>Updated on {SetDate(updatedAt).toString()}</h3>
                     <button onClick={() => dispatch(removeNote(id)) }>Delete Note</button>
                     </li>
                     {/* <li>
