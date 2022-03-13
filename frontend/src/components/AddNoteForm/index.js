@@ -59,7 +59,7 @@ const AddNote = ({id}) => {
         <div className="addnote-form">
             {/* <h1>Create Note</h1> */}
             <form onSubmit={handleSubmit}>
-            <ul>
+            <ul className="errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
                 <label className='label title'>New Note Title</label>

@@ -31,3 +31,7 @@ button {
 .label.content {
     font-size: 20px;
 }
+
+.errors {
+    color: red;
+}
