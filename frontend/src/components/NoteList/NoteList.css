@@ -36,6 +36,11 @@ button {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+button:hover {
+    transition: 0.2s ease-in;
+    background-color: #00751f;
+}
+
 h1 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
