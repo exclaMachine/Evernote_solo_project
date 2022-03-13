@@ -46,7 +46,7 @@ const AddNotebook = () => {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-                <label className="label title">Notebook Title</label>
+                <label className="label title">New Notebook Title</label>
                 <input
                 className="title-input"
                 type='text'

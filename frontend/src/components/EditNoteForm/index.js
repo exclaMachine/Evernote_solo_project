@@ -60,15 +60,15 @@ const UpdateNote = ({id}) => {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-                <label>Title</label>
+                <label className="label title">Title</label>
                 <input
                 type='text'
                 value= {title}
                 onChange={(e) => setTitle(e.target.value)}
                 />
-                <label>Content</label>
+                <label className="label content">Content</label>
                 <textarea
-                // type='textarea'
+                className='textarea'
                 value= {content}
                 onChange={(e) => setContent(e.target.value)}
                 />

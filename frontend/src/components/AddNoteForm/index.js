@@ -62,7 +62,7 @@ const AddNote = ({id}) => {
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
-                <label className='label title'>Note Title</label>
+                <label className='label title'>New Note Title</label>
                 <input
                 className="title-input"
                 type='text'
