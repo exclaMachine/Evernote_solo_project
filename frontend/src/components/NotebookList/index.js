@@ -32,7 +32,7 @@ const NotebookList = () => {
             <h1>List of Notebooks</h1>
             <ul>
                 {usersNotebooks.map(({ id, title}) => (
-                    <li key={id}>
+                    <li className='background' key={id}>
 
                      <h2 className="notebook-title">Notebook: {title}</h2>
                     <button onClick={() => dispatch(removeNotebookThunk(id))}>Delete Notebook</button>

@@ -25,7 +25,7 @@ const Splashpage = () => {
 
 
     return (
-        <div>
+        <div className='background'>
             <h1>Home</h1>
             <div className="punctuators">
                 <h2 className='punc'>Need help with the grammar and punctuation of your notes?</h2>
@@ -42,7 +42,7 @@ const Splashpage = () => {
 
             <ul>
                 {usersNotes.map(({ id, title, content, updatedAt}) => (
-                <div>
+                <div className='inner-background'>
                     <li key={id}>
                         <h1>{title}</h1>
                         <br></br>
