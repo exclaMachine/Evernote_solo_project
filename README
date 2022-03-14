@@ -1,9 +1,48 @@
-To run this program cd into the backend folder and run npm install.
-Cd into the frontend folder and also run npm install
+# Noti-Ty
 
-Create a .env file based on the .env.example template given.
+This is a clone of EverNote
+Noti-Ty is used to create notes and notebooks.
 
-Create a database which can be seeded using dotenv
+# Technologies
+    * Javascript
+    * React
+    * Redux
+    * Express
+    * Visual Studio Code
+    * HTML
+    * CSS
 
-Run npm start in the backend folder
-Run npm start in the frontend folder
+# Getting started
+
+1. Clone this repo.
+    ``` git clone https://github.com/exclaMachine/Evernote_solo_project.git```
+
+2. Install dependencies from the root directory.
+    * To run this program cd into the backend folder and run npm install.
+    * Cd into the frontend folder and also run npm install
+
+3. Create a POSTGRESQL user with CREATEDB and PASSWORD in PSQL.
+    * ```CREATE USER <name> WITH CREATEDB PASSWORD <'password'>```
+
+
+4. Create a .env file based on the .env.example template given.
+
+5. Enter your username and password info into a .env file with a database name. Also enter a secured combo of characters for a JWT_SECRET. Pick a PORT (preferably 5000).
+
+6. Add the proxy to you package.json file in you frontend directory. Make sure to mathc your PORT found in you .env file
+    * ```"proxy": "http://localhost:5000"```
+
+7. Create Database, then Migrate, and then Seed models
+    * ```npx dotenv sequelize db:create```
+    * ```npx dotenv sequelize db:migrate```
+    * ```npx dotenv sequelize db:seed:all```
+
+8. Run ```npm start``` in the backend folder
+    Run ```npm start``` in the frontend folder
+
+10. The Demo user can be used or an account can be created to start using Noti-Ty
+
+# Features
+Users can perform these actions.
+ * Add/View/Edit/Delete Notes
+ * Add/View/Delete Notebooks
