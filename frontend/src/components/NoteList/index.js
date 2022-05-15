@@ -6,6 +6,7 @@ import UpdateNote from "../EditNoteForm";
 import './NoteList.css'
 import AboutFooter from "../Navigation/About";
 import { DateTime } from "luxon"
+import SearchBar from "../Searchbar";
 
 import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
@@ -74,6 +75,7 @@ const NoteList = () => {
         <div className='background'>
             {/* <button>Add Note</button> */}
             <AddNote />
+            <SearchBar placeholder = {'Find a Note'} data={usersNotes}/>
             <h1>Note List</h1>
             <ul>
 
