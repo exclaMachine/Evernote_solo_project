@@ -33,10 +33,10 @@ const SearchBar = ({placeholder, data}) => {
             onChange={(e) => setSearchInput(e.target.value)}
             placeholder={placeholder}/>
 
-            {foundNotes && (
-                <ul className="dataResult">
+            {foundNotes && searchInput.length > 0 && (
+                <ul className="data-result">
                 {foundNotes.map((value, key) => {
-                    return (<a className='dataItem' key={key} href={`#${value?.id}`}>
+                    return (<a className='data-item' key={key} href={`#${value?.id}`}>
                         {value?.title}
                     </a>)
                 })}
