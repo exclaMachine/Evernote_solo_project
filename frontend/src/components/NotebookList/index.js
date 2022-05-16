@@ -6,6 +6,7 @@ import NotebookNoteList from "../NotebookNoteList";
 import './NotebookList.css'
 import { fetchNotebooksThunk, removeNotebookThunk } from "../../store/notebooks";
 import AboutFooter from "../Navigation/About";
+import SearchBar from "../Searchbar";
 
 const NotebookList = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const NotebookList = () => {
     // const notebooksObject = useSelector((state) => state.notebookState);
     const sessionUser = useSelector(state => state.session.user);
 
-    console.log('noteObj', notebooksObject)
+    // console.log('noteObj', notebooksObject)
     const notebooks = Object.values(notebooksObject)
 
     let usersNotebooks = notebooks.filter(note => note?.userId === sessionUser?.id)
@@ -30,9 +31,10 @@ const NotebookList = () => {
         <div>
             {/* <button>Add Notebook</button> */}
             <h1>List of Notebooks</h1>
+            <SearchBar data={usersNotebooks} placeholder={'Find a Notebook'}/>
             <ul>
                 {usersNotebooks.map(({ id, title}) => (
-                    <li className='background' key={id}>
+                    <li className='background' id={id} key={id}>
 
                      <h2 className="notebook-title">Notebook: {title}</h2>
                     <button onClick={() => dispatch(removeNotebookThunk(id))}>Delete Notebook</button>
