@@ -2,3 +2,25 @@
 .title-input {
     width: 500px
 }
+
+.data-result {
+    width: 300px;
+    margin-top: 5px;
+    background-color: white;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px; */
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.data-result .data-item {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.data-item {
+    width: 300px;
+    border: black solid 1px;
+    margin: 5px;
+}

@@ -6,6 +6,7 @@ import UpdateNote from "../EditNoteForm";
 import './NoteList.css'
 import AboutFooter from "../Navigation/About";
 import { DateTime } from "luxon"
+import SearchBar from "../Searchbar";
 
 import { fetchNotes, addNote, deleteNote, removeNote } from "../../store/notes";
 
@@ -75,11 +76,12 @@ const NoteList = () => {
             {/* <button>Add Note</button> */}
             <AddNote />
             <h1>Note List</h1>
+            <SearchBar placeholder = {'Find a Note'} data={usersNotes}/>
             <ul>
 
                 {notesSorted.map(({ id, title, content, updatedAt}) => (
         <div>
-                    <li key={id}>
+                    <li id={id} key={id}>
                         {/* <h1>{title}</h1> */}
                         {/* <br></br> */}
                         {/* {content} */}
