@@ -34,13 +34,13 @@ const SearchBar = ({placeholder, data}) => {
             placeholder={placeholder}/>
 
             {foundNotes && searchInput.length > 0 && (
-                <ul className="data-result">
+                <div className="data-result">
                 {foundNotes.map((value, key) => {
                     return (<a className='data-item' key={key} href={`#${value?.id}`}>
                         {value?.title}
                     </a>)
                 })}
-                </ul>
+                </div>
             )}
             {/* <button type='submit'>Search</button> */}
         {/* </form> */}

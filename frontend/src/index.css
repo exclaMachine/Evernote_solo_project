@@ -3,8 +3,11 @@
     width: 500px
 }
 
+
+
 .data-result {
-    width: 300px;
+    width: 200px;
+    height: 150px;
     margin-top: 5px;
     background-color: white;
     /* box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px; */
@@ -13,14 +16,15 @@
 }
 
 .data-result .data-item {
-    width: 300px;
+    width: 200px;
     display: flex;
     align-items: center;
     color: black;
+    text-decoration: none;
 }
 
 .data-item {
-    width: 300px;
-    border: black solid 1px;
+    width: auto;
+    border-bottom: black solid 1px;
     margin: 5px;
 }
