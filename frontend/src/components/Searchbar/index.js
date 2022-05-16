@@ -34,14 +34,13 @@ const SearchBar = ({placeholder, data}) => {
             placeholder={placeholder}/>
 
             {foundNotes && (
-                <div className="dataResult">
+                <ul className="dataResult">
                 {foundNotes.map((value, key) => {
-                    <div>
-                        where
-                        {value?.content}
-                    </div>
+                    return (<a className='dataItem' key={key} href={`#${value?.id}`}>
+                        {value?.title}
+                    </a>)
                 })}
-                </div>
+                </ul>
             )}
             {/* <button type='submit'>Search</button> */}
         {/* </form> */}

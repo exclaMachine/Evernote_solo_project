@@ -81,7 +81,7 @@ const NoteList = () => {
 
                 {notesSorted.map(({ id, title, content, updatedAt}) => (
         <div>
-                    <li key={id}>
+                    <li id={id} key={id}>
                         {/* <h1>{title}</h1> */}
                         {/* <br></br> */}
                         {/* {content} */}
