@@ -75,8 +75,8 @@ const NoteList = () => {
         <div className='background'>
             {/* <button>Add Note</button> */}
             <AddNote />
-            <SearchBar placeholder = {'Find a Note'} data={usersNotes}/>
             <h1>Note List</h1>
+            <SearchBar placeholder = {'Find a Note'} data={usersNotes}/>
             <ul>
 
                 {notesSorted.map(({ id, title, content, updatedAt}) => (
