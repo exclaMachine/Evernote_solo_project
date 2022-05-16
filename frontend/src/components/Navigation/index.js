@@ -26,7 +26,6 @@ const Navigation = ({isLoaded}) => {
                 <NavLink to='/api/notebooks' className='navlink'>
                     Notebooks
                 </NavLink>
-                <SearchBar/>
                 </div>
             </div>
          </div>
