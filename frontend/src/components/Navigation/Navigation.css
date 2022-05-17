@@ -65,6 +65,10 @@ li {
     color: #00a82d;
 }
 
+.active {
+    border-bottom: #00a82d solid 2px;
+}
+
 .footer-container {
     display: flex;
     justify-content: space-around;
