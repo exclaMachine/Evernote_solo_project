@@ -15,15 +15,15 @@ const Navigation = ({isLoaded}) => {
             <div className='profile-button'><ProfileButton user={sessionUser}/></div>
             <div >
                 <div className='links-container'>
-                <NavLink to='/' className='navlink' >
+                <NavLink to='/' exact={true} className='navlink' activeClassName='active'>
                     Home
                 </NavLink>
                 <br></br>
-                <NavLink to='/api/notes' className='navlink'>
+                <NavLink to='/api/notes' className='navlink' activeClassName='active'>
                     Notes
                 </NavLink>
                 <br></br>
-                <NavLink to='/api/notebooks' className='navlink'>
+                <NavLink to='/api/notebooks' className='navlink' activeClassName='active'>
                     Notebooks
                 </NavLink>
                 </div>
